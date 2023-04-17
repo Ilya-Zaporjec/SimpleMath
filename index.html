@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Гра "Віднімання і додавання"</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body style="background-image: url('img/images.jpg')">
+    <div class="container">
+      <h1>Гра "Віднімання і додавання"</h1>
+      <div class="question">
+        <p>
+          Яке число отримаємо, якщо <span id="firstNumber"></span>
+          <span id="operator"></span> <span id="secondNumber"></span>?
+        </p>
+        <input
+          type="text"
+          id="userAnswer"
+          placeholder="Введіть вашу відповідь"
+        />
+        <button id="checkButton">Перевірити</button>
+      </div>
+      <div class="result" id="result"></div>
+      <div class="counter" id="counter">
+        <div class="count" id="rightAnswer"></div>
+        <div class="count" id="wrongAnswer"></div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
