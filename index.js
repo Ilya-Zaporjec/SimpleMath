@@ -25,6 +25,17 @@ function generateRandomNumbers() {
 
 generateRandomNumbers();
 
+function generateSecondRandomNumbers() {
+  let firstNumber = Math.floor(Math.random() * 10) + 1;
+  let secondNumber = Math.floor(Math.random() * 10) + 1;
+
+  totalCount = firstNumber * secondNumber;
+
+  document.getElementById("firstCount").textContent = firstNumber;
+  document.getElementById("secondCount").textContent = secondNumber;
+}
+generateSecondRandomNumbers();
+
 if (localStorage.getItem("level")) {
   level = parseInt(localStorage.getItem("level"));
   document.getElementById("level").textContent = `Level: ${level}`;
@@ -69,18 +80,6 @@ document.getElementById("checkButton").addEventListener("click", function () {
   // Inside the event listener function
   localStorage.setItem("level", level.toString());
 });
-
-function generateSecondRandomNumbers() {
-  let firstNumber = Math.floor(Math.random() * 10) + 1;
-  let secondNumber = Math.floor(Math.random() * 10) + 1;
-
-  totalCount = firstNumber * secondNumber;
-
-  document.getElementById("firstCount").textContent = firstNumber;
-  document.getElementById("secondCount").textContent = secondNumber;
-}
-generateSecondRandomNumbers();
-
 document.getElementById("checkBtn").addEventListener("click", function () {
   let userInput = document.getElementById("userResult").value;
 
