@@ -2,30 +2,40 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Гра "Віднімання і додавання"</title>
+    <title>Simple Math</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body style="background-image: url('img/images.jpg')">
+  <body style="background-image: url('img/background.jpg')">
     <div class="container">
-      <h1>Гра "Віднімання і додавання"</h1>
-      <div class="question">
-        <p>
-          Яке число отримаємо, якщо <span id="firstNumber"></span>
-          <span id="operator"></span> <span id="secondNumber"></span>?
-        </p>
-        <input
-          type="text"
-          id="userAnswer"
-          placeholder="Введіть вашу відповідь"
-        />
-        <button id="checkButton">Перевірити</button>
+      <div class="math">
+        <h1>"Віднімання і додавання"</h1>
+        <div class="question">
+          <p>
+            Яке число отримаємо, якщо <span id="firstNumber"></span>
+            <span id="operator"></span> <span id="secondNumber"></span>?
+          </p>
+          <input type="text" id="userAnswer" placeholder="Відповідь:" />
+          <button id="checkButton">Перевірити</button>
+        </div>
+      </div>
+      <div class="math">
+        <h1>"Табличка множення"</h1>
+        <div class="question">
+          <p>
+            Яке число отримаємо, якщо <span id="firstCount"></span>
+            <span id="operator">*</span> <span id="secondCount"></span> ?
+          </p>
+          <input type="text" id="userResult" placeholder="Відповідь:" />
+          <button id="checkBtn">Перевірити</button>
+        </div>
       </div>
       <div class="result" id="result"></div>
       <div class="counter" id="counter">
         <div class="count" id="rightAnswer"></div>
         <div class="count" id="wrongAnswer"></div>
+        <div class="level" id="level"></div>
       </div>
     </div>
-    <script src="index.js"></script>
+    <script src="index.js" type="module"></script>
   </body>
 </html>

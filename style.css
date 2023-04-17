@@ -4,22 +4,28 @@ body {
 }
 
 .container {
-  max-width: 600px;
+  max-width: 700px;
   margin: 0 auto;
   border-radius: 10px;
   text-align: center;
-  background-color: rgb(98, 184, 219);
+  background-color: rgba(161, 232, 216, 0.5);
+}
+.math {
+  padding: 5px;
 }
 
 h1 {
-  font-size: 36px;
-  margin-top: 40px;
+  font-size: 18px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  /* margin-top: 40px; */
 }
 
 .question {
+  display: flex;
   font-family: Arial, Helvetica, sans-serif;
-  margin-top: 60px;
-  font-size: 24px;
+  margin-top: 5px;
+  padding: 5px;
+  font-size: 20px;
 }
 
 #operator {
@@ -27,34 +33,42 @@ h1 {
 }
 
 input[type="text"] {
-  padding: 8px;
+  padding: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 2px solid #bda5a5;
+  margin-left: auto;
+  border: 1px solid #4043fb;
   border-radius: 4px;
-  font-size: 18px;
+  font-size: 14px;
+}
+
+input:hover {
+  border: 2px solid #e90d14;
 }
 
 button {
   margin-top: 20px;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #4caf50;
+  margin-bottom: 20px;
+  margin-left: auto;
+  padding: 5px;
+  font-size: 14px;
+  background-color: #24b329;
   color: white;
-  border: none;
+  border: 1px solid teal;
   border-radius: 4px;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #3e8e41;
+  background-color: #17cd1d;
 }
 
 .result {
   margin-top: 10px;
   margin-bottom: 15px;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .count {
   margin-bottom: 10px;
@@ -71,4 +85,17 @@ button:hover {
 .counter {
   display: flex;
   align-items: center;
+  padding: 20px;
+}
+.level {
+  margin-bottom: 10px;
+  margin-left: auto;
+  padding: 10px;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  background-color: #8caae1;
+  color: rgb(0, 0, 0);
+  border: 2px solid blue;
+  border-radius: 4px;
 }
