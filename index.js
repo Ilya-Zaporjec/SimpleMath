@@ -3,10 +3,12 @@ let totalCount;
 let rightAnswer = 0;
 let wrongAnswer = 0;
 let level = 0;
-
+let firstNumber;
+let secondNumber;
+// ***********************************Логіка функцій******************************************************************************************
 function generateRandomNumbers() {
-  let firstNumber = Math.floor(Math.random() * 100) + 1;
-  let secondNumber =
+  firstNumber = Math.floor(Math.random() * 100) + 1;
+  secondNumber =
     firstNumber >= 100
       ? 0
       : Math.floor(Math.random() * (100 - firstNumber)) + 1;
@@ -22,26 +24,16 @@ function generateRandomNumbers() {
   document.getElementById("operator").textContent =
     firstNumber > secondNumber ? "-" : "+";
 }
-
-generateRandomNumbers();
-
 function generateSecondRandomNumbers() {
-  let firstNumber = Math.floor(Math.random() * 10) + 1;
-  let secondNumber = Math.floor(Math.random() * 10) + 1;
+  firstNumber = Math.floor(Math.random() * 10) + 1;
+  secondNumber = Math.floor(Math.random() * 10) + 1;
 
   totalCount = firstNumber * secondNumber;
 
   document.getElementById("firstCount").textContent = firstNumber;
   document.getElementById("secondCount").textContent = secondNumber;
 }
-generateSecondRandomNumbers();
-
-if (localStorage.getItem("level")) {
-  level = parseInt(localStorage.getItem("level"));
-  document.getElementById("level").textContent = `Level: ${level}`;
-}
-
-document.getElementById("checkButton").addEventListener("click", function () {
+function checksResultMath() {
   let userInput = document.getElementById("userAnswer").value;
 
   let message;
@@ -59,9 +51,9 @@ document.getElementById("checkButton").addEventListener("click", function () {
     document.getElementById("result").innerHTML = message;
     document.getElementById("result").style.color = "red";
     wrongAnswer += 1;
-    if (wrongAnswer % 20 == 0) {
+    if (wrongAnswer % 30 == 0) {
       level -= 1;
-      document.getElementById("level").textContent = `Level: ${level}`;
+      document.getElementById("level").textContent = `Рівень: ${level}`;
     }
   }
 
@@ -79,8 +71,8 @@ document.getElementById("checkButton").addEventListener("click", function () {
 
   // Inside the event listener function
   localStorage.setItem("level", level.toString());
-});
-document.getElementById("checkBtn").addEventListener("click", function () {
+}
+function checksResultMultiplikation() {
   let userInput = document.getElementById("userResult").value;
 
   let message;
@@ -118,4 +110,39 @@ document.getElementById("checkBtn").addEventListener("click", function () {
 
   // Inside the event listener function
   localStorage.setItem("level", level.toString());
-});
+}
+
+function startsGame() {
+  const element = document.getElementById("modal");
+  element.classList.add("visually-hidden");
+  generateSecondRandomNumbers();
+  generateRandomNumbers();
+}
+function help() {
+  let message = `Відповідь до завдання №1 :${result} до завдання №2 :${totalCount}`;
+  document.getElementById("result").innerHTML = message;
+  document.getElementById("result").style.color = "purple";
+  setTimeout(function () {
+    generateRandomNumbers();
+    generateSecondRandomNumbers();
+    document.getElementById("result").innerHTML = "";
+  }, 2000);
+}
+
+// ****************************************Виклик функцій*************************************************************************
+
+// *********************************Блок реєстрації події************************************************************************
+document
+  .getElementById("checkButton")
+  .addEventListener("click", checksResultMath);
+document
+  .getElementById("checkBtn")
+  .addEventListener("click", checksResultMultiplikation);
+document.getElementById("help-btn").addEventListener("click", help);
+document.getElementById("start-btn").addEventListener("click", startsGame);
+
+// *******************************************Збереження данних***********************************************************************
+if (localStorage.getItem("level")) {
+  level = parseInt(localStorage.getItem("level"));
+  document.getElementById("level").textContent = `Level: ${level}`;
+}
